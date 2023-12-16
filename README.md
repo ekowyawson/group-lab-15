@@ -5,9 +5,13 @@
 **Author**: The East Code - Group 1
 
 Ekow Yawson
+
 Stephanie G Johnson
+
 Latherio Kidd
+
 Felix Taveras
+
 Dave Johnson
 
 **Version**: 1.0.0 
@@ -28,11 +32,15 @@ npm start
 
 ## Tech Stack
 
-Auth 0
-MERN Stack
-Axios
-Bootstrap
-JWT
+- Auth 0
+
+- MERN Stack
+
+- Axios
+
+- Bootstrap
+
+- JWT
 
 ## Change Log
 
