@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Dogs(props) {
+function Dogs({dogs}) {
 
   return (
     <ul>
       {
-        props.dogs.map((dog, idx) =>
+        dogs.map((dog, idx) =>
           <li key={dog._id}>{dog.name}</li>
         )
       }

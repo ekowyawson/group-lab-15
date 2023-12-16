@@ -3,23 +3,30 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+const morgan = require('morgan');
 const authorize = require('./auth/authorize.js');
-const seed = require('./seed');
+const connectDB = require('./config/db');
+// const seed = require('./seed');
 
 const app = express();
 app.use(cors());
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(authorize);
 
 const PORT = process.env.PORT || 3001;
-mongoose.connect( process.env.MONGODB_URL );
+connectDB();
 
 // Get access to the dogs collection
 const Dogs = require('./models/dogs.js');
 
+// Logging
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
 // Seed the DB
-await seed(),then((data) => console.log(data));
+// console.log(seed);
 
 // GET: ROUTE /dogs
 app.get('/dogs', handleGetDogs);
@@ -61,4 +68,6 @@ async function handleGetDogs( req, res ) {
 }
 
 
-app.listen(PORT, () => console.log(`Up on port ${PORT}`));
+app.listen(PORT,
+  () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);
