@@ -62,6 +62,9 @@ Finish time: 10pm
 
 Actual time needed to complete: 5hrs
 
+## Lighthouse
+
+![LighthouseResults](Lighthouse.png)
 
 ## Overview
 
